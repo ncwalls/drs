@@ -1,0 +1,61 @@
+.home{
+	.hero{
+		height: 100vh;
+		width: 100%;
+		
+		.container{
+			background: rgba($blue, 0.83);
+			color: #fff;
+			padding: 7rem;
+			margin: 0 auto;
+			position: absolute;
+			top: 29rem;
+			right: 0;
+			left: 0;
+			text-align: center;
+
+			@media (max-width : $fullsize) {
+				padding: 6rem;
+			}
+			@media (max-width : $desktop) {
+				font-size: 5rem;
+			}
+			
+			h1{
+				color: #fff;
+				font-size: 7.2rem;
+				margin: 0 0 2.5rem 0;
+				line-height: 1;
+				text-shadow: 0 0.3rem 0.8rem rgba(0,0,0,0.4);
+	
+				@media (max-width : $fullsize) {
+					font-size: 6rem;
+				}
+				@media (max-width : $desktop) {
+					font-size: 5rem;
+				}
+				
+				.hero-text-slider{
+					display: inline-block;
+					font-family: $font-family-callout;
+					transform: rotate(-6deg);
+					width: 32rem;
+					vertical-align: middle;
+					
+					.word{
+						display: block !important;
+						font-size: 11.6rem;
+						line-height: 1.1;
+						text-transform: none;
+						width: 32rem;
+					}
+				}
+			}
+			
+			p{
+				font-size: 2.4rem;
+				margin: 0;
+			}
+		}
+	}
+}

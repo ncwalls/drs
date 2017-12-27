@@ -1,0 +1,58 @@
+.site-footer {
+
+}
+
+.footer-cta{
+
+}
+
+.footer-bottom{
+	background: #000;
+}
+
+#sparkspring-logo{
+	display: block;
+	float: right;
+	width: 2rem;
+	
+	@media (max-width : $phablet) {
+		float: none;
+		margin: 1rem auto 0 auto;
+	}
+	
+	svg{
+		display: block;
+		height: 4rem;
+		width: 100%;
+		
+		path{
+			fill: #fff;
+		}
+	}
+	
+	&:hover{
+	
+		svg{
+
+			path{
+				animation: sparkspring-logo 0.7s linear;
+				animation-fill-mode: forwards;
+			}
+		}
+	}
+}
+
+@keyframes sparkspring-logo{
+	0%{
+		fill: #fff;
+	}
+	33%{
+		fill: $sparkspring-red-light;
+	}
+	67%{
+		fill: $sparkspring-blue-light;
+	}
+	100%{
+		fill: $sparkspring-green-light;
+	}
+}
