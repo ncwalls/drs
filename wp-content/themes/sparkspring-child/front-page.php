@@ -16,7 +16,38 @@
 				</div>
 			</div>
 			
-			<div class="news">
+			<section class="home-about">
+				<div class="container">
+					<div class="about-content">
+						<h2><?php the_field('home_about_title'); ?></h2>
+						
+						<?php the_field('home_about_content'); ?>
+						
+						<a href="<?php the_field('home_about_button_link'); ?>" class="button"><?php the_field('home_about_button_text'); ?></a>
+					</div>
+					<section class="home-team">
+						<div class="team-slider">
+							<?php while(have_rows('team_slider')): the_row(); $team_id = get_sub_field('team_member'); ?>
+								<div class="slide">
+									<figure>
+										<div class="img" style="background-image: url(<?php echo get_the_post_thumbnail_url( $team_id, 'medium' ); ?>)"></div>
+									</figure>
+									<div class="content">
+										<h3><?php echo get_the_title($team_id); ?></h3>
+										<p><?php echo get_field('position_title', $team_id); ?></p>
+									</div>
+								</div>
+							<?php endwhile; ?>
+						</div>
+						<div class="team-description">
+							<p><?php the_field('team_description'); ?></p>
+							<a href="<?php the_field('team_button_link'); ?>" class="button"><?php the_field('team_button_text'); ?></a>
+						</div>
+					</section>
+				</div>
+			</section>
+			
+			<section class="home-news">
 				<div class="container">
 					<h2><?php the_field('news_title'); ?></h2>
 					<div class="news-content">
@@ -51,7 +82,7 @@
 					</div>
 					<a href="<?php echo get_permalink(get_option('page_for_posts')); ?>" class="all">See All</a>
 				</div>
-			</div>
+			</section>
 		</article>
 	<?php endwhile; ?>
 
