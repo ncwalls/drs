@@ -1,6 +1,6 @@
 .site-header {
-	background: linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0));
-	height: 30rem;
+	background: rgba(0,0,0,0.8);
+	height: 12rem;
 	position: fixed;
 	left: 0;
 	right: 0;
@@ -9,12 +9,9 @@
 	z-index: 99;
 	
 	@media (max-width : $laptop) {
-		height: 20rem;
 	}
 	
 	.scrolled &{
-		background: rgba(0,0,0,0.8);
-		height: 12rem;
 		transform: translateY(-3.8rem);
 		
 		@media (max-width : $phablet) {
@@ -75,41 +72,20 @@
 		align-items: center;
 		display: flex;
 		justify-content: space-between;
-		padding: 1.6rem 2rem 0 2rem;
-		transition: padding 0.3s;
-		width: 80%;
-		
-		.scrolled &{
-			padding-top: 1rem;
-		}
-		
-		@media (max-width : $tablet) {
-			padding-right: 0;
-			padding-left: 0;
-		}
+		padding: 1rem 0 0 0;
+		width: 90%;
 	}
 	
 	.logo{
 		display: block;
 		float: left;
-		margin-right: 5%;
-		min-width: 17rem;
-		width: 17rem;
-		transition: all 0.3s;
-		
-		@media (max-width : $laptop) {
-			min-width: 10rem;
-			width: 10rem;
-		}
-	
-		.scrolled &{
-			min-width: 6rem;
-			width: 6rem;
+		margin-right: 3%;
+		min-width: 6rem;
+		width: 6rem;
 			
-			@media (max-width : $phablet) {
-				min-width: 4rem;
-				width: 4rem;
-			}
+		@media (max-width : $phablet) {
+			min-width: 4rem;
+			width: 4rem;
 		}
 		
 		img{
@@ -131,46 +107,44 @@
 		display: none;
 	}
 	
-	ul{
-		align-items: center;
-		display: flex;
-		justify-content: space-between;
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		white-space: nowrap;
-		width: 100%;
-		
-		li{
-		}
-	}
-	
 	.menu{
 		align-items: center;
 		display: flex;
 		font-family: $font-family-headline;
-		font-size: 2.7rem;
+		font-size: 2rem;
 		font-weight: 300;
 		justify-content: space-between;
-		line-height: 1;
-		transition: font-size 0.3s;
-		
-		.scrolled &{
-			font-size: 2rem;
-		}
+		line-height: 2;
 		
 		@media (max-width : $desktop) {
-			font-size: 2.1rem;
+			font-size: 1.8rem;
 		}
 		
 		> li{
 			display: inline-block;
+			position: relative;
+			
+			> a{
+				white-space: nowrap;
+				
+				&[href="#"]{
+					cursor: default;
+				}
+			}
 			
 			&:hover{
 				.sub-menu{
 					opacity: 1;
 					max-height: 50rem;
-					padding: 1.5rem 2rem;
+					padding: 2rem;
+				}
+			}
+			
+			&.menu-item-has-children{
+				&:hover{
+					> a{
+						color: $red;
+					}
 				}
 			}
 		}
@@ -187,7 +161,8 @@
 	
 	.sub-menu{
 		background: rgba($black, 0.8);
-		font-size: 0.8em;
+		font-size: 0.9em;
+		line-height: 1.2;
 		max-height: 0;
 		opacity: 0;
 		overflow: hidden;
@@ -196,10 +171,13 @@
 		top: 100%;
 		left: 0;
 		transition: all 0.3s;
+		white-space: nowrap;
 		
 		li{
+			display: block;
 			
 			+ li{
+				margin-top: 1.5rem;
 			}
 		}
 	}
@@ -228,7 +206,7 @@
 }
 
 #ocn{
-	background: #fff;
+	background: $blue;
 }
 
 #ocn-top{
@@ -236,7 +214,7 @@
 }
 
 #ocn-brand{
-	width: 16rem;
+	width: 10rem;
 	
 	img{
 		display: block;
@@ -259,12 +237,13 @@
 	}
 	
 	.sub-menu{
-		background: rgba($black, 0.2);
+		background: rgba($black, 0.5);
 		font-size: 0.8em;
+		white-space: normal;
 	}
 	
 	a{
-		color: $black;
+		color: #fff;
 		text-decoration: none;
 		
 		&:hover{

@@ -1,59 +1,29 @@
-<section class="newsletter">
-	<div class="container">
-		<div class="content">
-			<h4><?php echo get_field('newsletter_form_title', 'option'); ?></h4>
-			<?php echo get_field('newsletter_form_content', 'option'); ?>
-		</div>
-		<?php echo do_shortcode('[gravityform id="2" title="false" description="false" ajax="true" tabindex="30"]'); ?>
-	</div>
-</section>
-
 
 <?php 
 	$contact_data = get_field( 'contact_information', 'option' ); 
 	$contact = $contact_data[ 0 ];
 ?>
 		<footer class="site-footer">
-			<div class="footer-top">
+			<div class="footer-cta" style="background-image: url(<?php echo get_field('footer_background','option')['url']; ?>)">
 				<div class="container">
-					<?php if(!is_page_template('page_contact.php')): ?>
-					<div class="left">
-						<?php echo get_field('footer_contact_content', 'option'); ?>
-						<a href="tel: <?php echo $contact[ 'phone_number' ]; ?>" class="footer-phone"><?php echo $contact[ 'phone_number' ]; ?></a>
-						<p class="location">Dallas, TX</p>
-						<?php echo do_shortcode('[gravityform id="1" title="false" description="false" ajax="true" tabindex="50"]'); ?>
-					</div>
-					<?php endif; ?>
-					<div class="right">
-						<?php echo get_field('footer_right_content', 'option'); ?>
-						<?php /*<h4><strong>Our</strong> Location</h4>
-						<p class="address"><?php echo $contact[ 'address' ]; ?></p>
-						<div id="gmap"></div>
-						<a href="<?php echo get_field( 'directions_link','option' ); ?>" class="directions">Get Directions &gt;</a>*/?>
-						<?php if ( $contact[ 'social_media_links' ] ): ?>
-							<div class="social">
-								<h4>Social</h4>
-								<?php foreach ( $contact[ 'social_media_links' ] as $social ): ?>
-									<a href="<?php echo $social[ 'url' ]; ?>" target="_blank">
-										<i class="fa <?php echo $social[ 'class' ]; ?>"></i>
-									</a>
-								<?php endforeach; ?>
-							</div>
-						<?php endif; ?>
-					</div>
+					<p><?php echo get_field('footer_text','option'); ?></p>
+					<a href="<?php echo get_field('footer_button_link','option'); ?>" class="button"><?php echo get_field('footer_button_link_text','option'); ?></a>
 				</div>
 			</div>
+
 			<div class="footer-bottom">
 				<div class="container">
-					<nav class="footer-inlinks">
-						<p class="copyright">&copy;<?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?>.</p>
-						<ul>
-							<li><a href="<?php echo home_url( 'privacy-policy' ); ?>" title="Privacy Policy">Privacy Policy</a></li>
-							<li><a href="<?php echo home_url( 'site-info' ); ?>" title="Site Info">Site Info</a></li>
-							<li><a href="<?php echo home_url( 'site-map' ); ?>" title="Site Map">Site Map</a></li>
+					<?php if ( $contact[ 'social_media_links' ] ): ?>
+						<ul class="social">
+							<?php foreach ( $contact[ 'social_media_links' ] as $social ): ?>
+								<li><a href="<?php echo $social[ 'url' ]; ?>" target="_blank">
+									<i class="fa <?php echo $social[ 'class' ]; ?>"></i>
+									</a></li>
+							<?php endforeach; ?>
 						</ul>
-					</nav>
-					<a href="http://www.sparkspring.com" id="sparkspring-logo">
+					<?php endif; ?>
+					<p class="copyright">&copy;<?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?>.</p>
+					<?php /*<a href="http://www.sparkspring.com" id="sparkspring-logo">
 						<svg version="1.1"
 							 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
 							 x="0px" y="0px" width="101.1px" height="349.2px" viewBox="0 0 101.1 349.2" style="enable-background:new 0 0 101.1 349.2;"
@@ -63,7 +33,7 @@
 									C4.3,51.4-6.9,78.3,4,112.9C9.3,129.5,17.2,143.7,25.7,157z M29.4,162.7c21.4,32.7,44.1,61.3,33.9,109.8
 									C48.9,233.2,11.9,214.7,29.4,162.7z"/>
 						</svg>
-					</a>
+					</a>*/?>
 				</div>
 			</div>
 		</footer>

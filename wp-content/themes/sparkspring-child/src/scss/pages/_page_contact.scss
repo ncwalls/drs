@@ -1,3 +1,70 @@
 .page-template-page_contact {
+	.contact-links{
+		margin-bottom: 5rem;
+		overflow: hidden;
+		
+		@media (max-width : $laptop) {
+			margin-bottom: 3rem;
+		}
+		
+		p{
+			float: left;
+			line-height: 3rem;
+			margin: 0;
+			width: 33.3%;
+			
+			@media (max-width : $laptop) {
+				float: none;
+				margin-bottom: 1.5rem;
+				width: auto;
+			}
+		}
+		
+		.phone,
+		.email{
+			a{
+				font-weight: 600;
+			}
+		}
+		
+		.social{
+			font-size: 3rem;
+			
+			a{
+				display: inline-block;
+				margin-right: 1rem;
+			}
+		}
+	}
 	
+	.gform_wrapper{
+		
+		@media (max-width : $laptop) {
+		}
+		
+		.gfield{
+			label{
+				color: $blue;
+				font-family: $font-family-headline;
+				font-size: 1.8rem;
+				font-weight: 600;
+				text-transform: uppercase;
+				
+				@media (max-width : $laptop) {
+					font-size: 1.6rem;
+				}
+			}
+			input,
+			textarea{
+				//border: 1px solid $red;
+				background: rgba($blue, 0.1);
+				border-radius: 0.3rem;
+				font-size: 1.8rem;
+				padding: 1rem;
+			}
+			textarea{
+				height: 15rem;
+			}
+		}
+	}
 }

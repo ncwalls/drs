@@ -38,7 +38,8 @@
 		<?php endif; ?>
 		<header class="site-header">
 			<div class="top-bar">
-				located in Nashville, TN <span class="bullet">•</span> Serving the entire U.S. <span class="bullet">•</span> <a href="tel: <?php echo $contact[ 'phone_number' ]; ?>" class="footer-phone"><?php echo $contact[ 'phone_number' ]; ?></a>
+				<?php
+					if(get_field('top_bar_text_part_1', 'option')){ echo get_field( 'top_bar_text_part_1', 'option' ) . '<span class="bullet">•</span>'; } if(get_field('top_bar_text_part_2', 'option')){ echo get_field( 'top_bar_text_part_2', 'option' ) . '<span class="bullet">•</span>'; } ?> <a href="tel:<?php echo $contact[ 'phone_number' ]; ?>" class="footer-phone"><?php echo $contact[ 'phone_number' ]; ?></a>
 			</div>
 			<div class="container">
 				<a href="<?php echo home_url(); ?>" title="<?php bloginfo( 'name' ); ?>" class="logo">

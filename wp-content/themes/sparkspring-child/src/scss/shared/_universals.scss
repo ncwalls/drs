@@ -1,21 +1,37 @@
 body{
 	color: $black;
 	font-size: 2.1rem;
+	padding-top: 18rem;
+	
+	
+	@media (max-width : $laptop) {
+		font-size: 1.8rem;
+	}
+	
+	@media (max-width : $phablet) {
+		padding-top: 16rem;
+	}
 }
 
 .container{
 	margin: 0 auto;
-	width: 61%;
+	max-width: 117rem;
+	//width: 61%;
+	width: 80%;
 	
-	@media (max-width : $fullsize) {
+	/*@media (max-width : $fullsize) {
 		width: 70%;
 	}
-	@media (max-width : $desktop) {
+	@media (max-width : 1500px) {
 		width: 80%;
 	}
+	@media (max-width : $laptop) {
+		width: 85%;
+	}*/
 }
 
 h1,h2,h3,h4,h5{
+	color: $blue;
 	line-height: 1.2;
 	margin: 2rem 0 1rem;
 	
@@ -25,28 +41,44 @@ h1,h2,h3,h4,h5{
 }
 
 h1{
+	color: $red;
 	font-size: 5.1rem;
 	font-weight: 300;
 	margin: 0 0 3rem 0;
 	text-transform: uppercase;
 	
-	@media (max-width : $tablet) {
+	@media (max-width : $desktop) {
 		font-size: 4rem;
+	}
+	@media (max-width : $phablet) {
+		font-size: 3rem;
 	}
 }
 
 h2{
-	color: $blue;
 	font-size: 3.2rem;
 	font-weight: 400;
 	
-	@media (max-width : $tablet) {
+	@media (max-width : $desktop) {
 		font-size: 3rem;
+	}
+	@media (max-width : $tablet) {
+		font-size: 2.8rem;
+	}
+	@media (max-width : $phablet) {
+		font-size: 2.5rem;
 	}
 }
 
 h3{
 	font-size: 2.3rem;
+	
+	@media (max-width : $tablet) {
+		font-size: 2.1rem;
+	}
+	@media (max-width : $phablet) {
+		//font-size: 2rem;
+	}
 }
 
 p{
@@ -72,8 +104,13 @@ a{
 	display: inline-block;
 	font-size: 2.1rem;
 	padding: 2.7rem 4.8rem;
+	text-align: center;
 	text-transform: uppercase;
 	transition: all 0.3s;
+	
+	@media (max-width : $phablet) {
+		padding: 2rem 3rem;
+	}
 	
 	&:hover{
 		background: $black;

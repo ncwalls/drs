@@ -1,2 +1,92 @@
 .single-post {
+	h1{
+		margin: 0;
+	}
+	.post-meta{
+		color: $blue;
+		font-family: $font-family-headline;
+		font-weight: 300;
+		margin: 1rem 0 3rem 0;
+		
+		strong{
+			font-weight: 600;
+		}
+	}
+}
+
+
+.single-nav{
+	clear: both;
+	font-family: $font-family-headline;
+	font-size: 1.6rem;
+	font-weight: 600;
+	margin-top: 4rem;
+	
+	ul{
+		list-style: none;
+		margin: 0;
+		overflow: hidden;
+		padding: 0;
+		text-align: center;
+		
+		li{
+			min-height: 1px;
+			width: 33.333%;
+			
+			@media (max-width : $tablet) {
+				width: 100%;
+			}
+		}
+		
+		a{
+			display: inline-block;
+			
+			&:hover{
+			}
+		}
+		
+		.fa{
+			font-size: 1.3em;
+		}
+		
+		.prev{
+			float: left;
+			text-align: left;
+			
+			@media (max-width : $tablet) {
+				float: none;
+				margin-bottom: 1.5rem;
+				text-align: center;
+			}
+			
+			.fa{
+				margin-right: 0.5rem;
+			}
+		}
+		
+		.next{
+			float: right;
+			text-align: right;
+			
+			@media (max-width : $tablet) {
+				float: none;
+				text-align: center;
+			}
+			
+			.fa{
+				margin-left: 0.5rem;
+			}
+		}
+		
+		.back{
+			display: inline-block;
+			text-align: center;
+			
+			@media (max-width : $tablet) {
+				display: block;
+				margin-top: 1.5rem;
+				text-align: center;
+			}
+		}
+	}
 }

@@ -1,0 +1,46 @@
+.page-template-page_gallery {
+	.gallery{
+		@include clearfix;
+		margin: 0 -1rem;
+		
+		.img{
+			align-items: stretch;
+			display: flex;
+			flex-wrap: wrap;
+			float: left;
+			padding: 1rem;
+			width: 25%;
+			
+			@media (max-width : $laptop) {
+				width: 33.333%;
+			}
+			
+			@media (max-width : $phablet) {
+				width: 50%;
+			}
+			
+			a{
+				background: no-repeat center center;
+				background-size: cover;
+				display: block;
+				transition: all 0.3s;
+				width: 100%;
+				
+				&:before{
+					content: '';
+					display: block;
+					padding-bottom: 100%;
+				}
+				
+				&:hover{
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+}
+
+.mfp-container {
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+}
