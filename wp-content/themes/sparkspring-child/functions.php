@@ -8,11 +8,7 @@ class SparkSpringChild {
 	}
 	
 	function pre_get_posts( $query ){
-		if ( $query->is_main_query() && ( is_post_type_archive( 'projects' ) || is_tax( 'industries' ) ) ){
-			//$query->set( 'orderby', 'menu_order' );
-			//$query->set( 'order', 'ASC' );
-			//$query->set( 'posts_per_page', 12 );
-		} elseif ( $query->is_main_query() && is_post_type_archive( 'team' ) ){
+		if ( $query->is_main_query() && is_post_type_archive( 'team' ) ){
 			$query->set( 'nopaging', true );
 			$query->set( 'orderby', 'menu_order' );
 			$query->set( 'order', 'ASC' );
