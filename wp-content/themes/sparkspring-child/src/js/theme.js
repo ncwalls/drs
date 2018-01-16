@@ -2,6 +2,7 @@
 
 	var homeHero = function(){
 		$('.hero-text-slider').slick({
+			adaptiveHeight: true,
 			autoplay: true,
 			autoplaySpeed: 3000,
 			arrows: false,
@@ -15,7 +16,9 @@
 		
 		$('.team-slider').slick({
 			arrows: true,
-			dots: false
+			dots: false,
+			autoplay: true,
+			autoplaySpeed: 3000
 		});
 	};
 	
@@ -24,10 +27,13 @@
 		var homeProjectsContainer = $('.home-projects');
 	
 		$('.projects').slick({
+			adaptiveHeight: true,
 			arrows: false,
 			dots: false,
+			draggable: false,
 			fade: true,
 			speed: 500,
+			touchMove:false,
 			responsive: [
 				{
 					breakpoint: 768,
@@ -55,7 +61,7 @@
 	var homeNews = function(){
 	
 		$('.news-slider').slick({
-			//adaptiveHeight: true,
+			adaptiveHeight: true,
 			arrows: true,
 			dots: false
 		});

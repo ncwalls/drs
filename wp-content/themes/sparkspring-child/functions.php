@@ -32,6 +32,21 @@ class SparkSpringChild {
 		wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Arizonia|Montserrat:300,400,500,600|Open+Sans:400,400i,700,700i' );
 		wp_enqueue_style( 'theme', get_stylesheet_uri(), null, time() );
 	}
+	
+	static public function get_excerpt_by_id($post_id, $word_count = 10){
+		$the_post = get_post($post_id); //Gets post ID
+		$the_excerpt = $the_post->post_content; //Gets post_content to be used as a basis for the excerpt
+		$excerpt_length = $word_count; //Sets excerpt length by word count
+		$the_excerpt = strip_tags(strip_shortcodes($the_excerpt)); //Strips tags and images
+		$words = explode(' ', $the_excerpt, $excerpt_length + 1);
+		if(count($words) > $excerpt_length) :
+		array_pop($words);
+		array_push($words, '…');
+		$the_excerpt = implode(' ', $words);
+		endif;
+		//$the_excerpt = '<p>' . $the_excerpt . '</p>';
+		return $the_excerpt;
+	}
 
 }
 

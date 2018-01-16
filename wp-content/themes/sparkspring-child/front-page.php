@@ -8,12 +8,13 @@
 					<h1><?php the_field('hero_title_part_1'); ?>
 						<div class="hero-text-slider">
 							<?php while( have_rows('hero_title_scrolling_text')): the_row(); ?>
-								<div class="word"><?php the_sub_field('word'); ?></div>
+								<div class="word"><div><?php the_sub_field('word'); ?></div></div>
 							<?php endwhile; ?>
 						</div>
 						<?php the_field('hero_title_part_2'); ?></h1>
 					<p><?php the_field('hero_subtitle'); ?></p>
 				</div>
+				<span class="hero-scroll fa fa-angle-down"></span>
 			</div>
 			
 			<section class="home-about">
@@ -29,11 +30,13 @@
 						<div class="team-slider">
 							<?php while(have_rows('team_slider')): the_row(); $team_id = get_sub_field('team_member'); ?>
 								<div class="slide">
-									<figure>
-										<div class="img" style="background-image: url(<?php echo get_the_post_thumbnail_url( $team_id, 'medium' ); ?>)"></div>
-									</figure>
+									<?php if(get_the_post_thumbnail_url( $team_id )): ?>
+										<figure>
+											<a href="<?php echo get_permalink($team_id); ?>" class="img" style="background-image: url(<?php echo get_the_post_thumbnail_url( $team_id, 'medium' ); ?>)"></a>
+										</figure>
+									<?php endif; ?>
 									<div class="content">
-										<h3><?php echo get_the_title($team_id); ?></h3>
+										<h3><a href="<?php echo get_permalink($team_id); ?>"><?php echo get_the_title($team_id); ?></a></h3>
 										<p><?php echo get_field('position_title', $team_id); ?></p>
 									</div>
 								</div>
@@ -60,10 +63,19 @@
 							<?php $project_i = 0; while(have_rows('featured_projects')): the_row(); $project_i++;?>
 								<div class="project <?php echo $project_i == 1 ? 'active' : ''; ?>" id="project-<?php echo $project_i; ?>">
 									<?php $project_ID = get_sub_field('project')->ID; ?>
-									<figure style="background-image: url(<?php echo get_the_post_thumbnail_url( $project_ID, 'large' ); ?>)"></figure>
+									<?php if(get_the_post_thumbnail_url( $project_ID )): ?>
+										<figure style="background-image: url(<?php echo get_the_post_thumbnail_url( $project_ID, 'large' ); ?>)"></figure>
+									<?php endif; ?>
 									<div class="content">
 										<h3><?php echo get_the_title($project_ID); ?></h3>
-										<?php echo get_sub_field('short_description'); ?>
+										<?php
+											if( get_sub_field('short_description') ){
+												echo get_sub_field('short_description');
+											}
+											else{
+												echo '<p>' . SparkSpringChild::get_excerpt_by_id($project_ID, 30) . '</p>';
+											}
+										?>
 										<div class="link">
 											<a href="<?php echo get_permalink($project_ID); ?>" class="button">Project Details</a>
 										</div>
