@@ -1,11 +1,11 @@
 body{
 	color: $black;
-	font-size: 2.1rem;
+	font-size: 1.9rem;
 	padding-top: 18rem;
 	
 	
 	@media (max-width : $laptop) {
-		font-size: 1.8rem;
+		font-size: 1.7rem;
 	}
 	
 	@media (max-width : $phablet) {
@@ -85,6 +85,15 @@ p{
 	margin: 0 0 2.5rem 0;
 }
 
+.hentry{
+	ul,ol{
+		margin-bottom: 2.5rem;
+	}
+	li{
+		margin: 1rem 0;
+	}
+}
+
 
 a{
 	color: $red;
@@ -116,5 +125,18 @@ a{
 		background: $black;
 		box-shadow: 0 3px 0 rgba(0,0,0,1);
 		color: #fff;
+	}
+	
+	&.ghost{
+		background: #fff;
+		//border: 3px solid $red;
+		box-shadow: 0 3px 0 #ccc;
+		color: $red;
+	
+		&:hover{
+			background: $black;
+			box-shadow: 0 3px 0 #000;
+			color: #fff;
+		}
 	}
 }

@@ -261,6 +261,7 @@
 				text-indent: 100%;
 				transform: translateY(-50%);
 				width: 2.5rem;
+				z-index: 10;
 			}
 			.slick-prev{
 				background-image: url(images/left.png);
@@ -542,6 +543,11 @@
 						margin-top: 1rem;
 						text-align: center;
 						padding-bottom: 4px;
+						
+						a{
+							display: inline-block;
+							margin: 0 1rem;
+						}
 					}
 				}
 			}

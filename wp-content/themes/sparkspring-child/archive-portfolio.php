@@ -74,11 +74,11 @@
 		<section class="projects-list">
 			<?php while( have_posts() ): the_post(); ?>
 				<?php
-					//if ( get_the_post_thumbnail_url() ){
+					if ( get_the_post_thumbnail_url() ){
 						$img = get_the_post_thumbnail_url( get_the_ID(), 'medium' );
-					//} elseif ( get_field( 'projects_default_featured_image', 'option' ) ){
-					//	$img = get_field( 'projects_default_featured_image', 'option' )[ 'sizes' ][ 'medium' ];
-					//} 
+					} elseif ( get_field( 'projects_default_featured_image', 'option' ) ){
+						$img = get_field( 'projects_default_featured_image', 'option' )[ 'sizes' ][ 'medium' ];
+					} 
 				?>
 
 				<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">

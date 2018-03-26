@@ -8,7 +8,7 @@ class SparkSpringChild {
 	}
 	
 	function pre_get_posts( $query ){
-		if ( $query->is_main_query() && is_post_type_archive( 'team' ) ){
+		if ( ! is_admin() && $query->is_main_query() && is_post_type_archive( 'team' ) ){
 			$query->set( 'nopaging', true );
 			$query->set( 'orderby', 'menu_order' );
 			$query->set( 'order', 'ASC' );

@@ -4,7 +4,7 @@
   "description": "Custom installer for the Makespace WordPress framework",
   "main": "index.js",
   "scripts": {
-  	"beforerun": "npm install adm-zip async os ncp prompt simple-git",
+    "beforerun": "npm install adm-zip async os ncp prompt simple-git",
     "framework-editor": "npm run beforerun && node framework-editor.js && npm run afterrun",
     "installer": "npm run beforerun && node installer.js && npm run afterrun",
     "afterrun": "npm uninstall adm-zip async os ncp prompt simple-git && npm install && bower install"

@@ -28,19 +28,35 @@
 					</div>
 					<section class="home-team">
 						<div class="team-slider">
-							<?php while(have_rows('team_slider')): the_row(); $team_id = get_sub_field('team_member'); ?>
-								<div class="slide">
-									<?php if(get_the_post_thumbnail_url( $team_id )): ?>
-										<figure>
-											<a href="<?php echo get_permalink($team_id); ?>" class="img" style="background-image: url(<?php echo get_the_post_thumbnail_url( $team_id, 'medium' ); ?>)"></a>
-										</figure>
-									<?php endif; ?>
-									<div class="content">
-										<h3><a href="<?php echo get_permalink($team_id); ?>"><?php echo get_the_title($team_id); ?></a></h3>
-										<p><?php echo get_field('position_title', $team_id); ?></p>
+							<?php //while(have_rows('team_slider')): the_row();
+								$team = get_posts(array(
+									'post_type' => 'team',
+									'nopaging' => true,
+									'orderby' => 'menu_order',
+									'order' => 'ASC'
+								));
+								foreach( $team as $team_member ):
+									$team_id = $team_member->ID; //get_sub_field('team_member'); ?>
+									<div class="slide">
+										<?php //if(get_the_post_thumbnail_url( $team_id )): ?>
+											<?php
+												if(get_field('team_member_static_image', $team_id)){
+													$team_img = get_field('team_member_static_image', $team_id)['sizes']['medium'];
+												}
+												else{
+													$team_img = get_the_post_thumbnail_url( $team_id, 'medium');
+												}
+											?>
+											<figure>
+												<a href="<?php echo get_permalink($team_id); ?>" class="img" style="background-image: url(<?php echo $team_img; ?>)"></a>
+											</figure>
+										<?php //endif; ?>
+										<div class="content">
+											<h3><a href="<?php echo get_permalink($team_id); ?>"><?php echo get_the_title($team_id); ?></a></h3>
+											<p><?php echo get_field('position_title', $team_id); ?></p>
+										</div>
 									</div>
-								</div>
-							<?php endwhile; ?>
+							<?php endforeach; ?>
 						</div>
 						<div class="team-description">
 							<p><?php the_field('team_description'); ?></p>
@@ -78,13 +94,14 @@
 										?>
 										<div class="link">
 											<a href="<?php echo get_permalink($project_ID); ?>" class="button">Project Details</a>
+											<a href="<?php the_field('projects_button_link'); ?>" class="button ghost"><?php the_field('projects_button_text'); ?></a>
 										</div>
 									</div>
 								</div>
 							<?php endwhile; ?>
 						</div>
 					</div>
-					<a href="<?php the_field('projects_button_link'); ?>" class="button"><?php the_field('projects_button_text'); ?></a>
+					<?php /*<a href="<?php the_field('projects_button_link'); ?>" class="button"><?php the_field('projects_button_text'); ?></a>*/?>
 				</div>
 			</section>
 			
